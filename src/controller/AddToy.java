@@ -23,9 +23,7 @@ public class AddToy {
 
 	private void Search() {
 //		ToyManager toys= new ToyManager();
-		
-		int sn= appMenu.findSN();
-		String tname= appMenu.findTN();
+			String tname= appMenu.findTN();
 		String tbrand= appMenu.promptTB();
 		int tprice= appMenu.promptTP();
 		int count= appMenu.promptTC();
@@ -36,47 +34,47 @@ public class AddToy {
 		System.out.println("New Toy Added!");
 		//ENTER SENDS BACK TO MAIN MENU
 		
-		//do loadToyData all over again 
+		int sn= appMenu.findSN();
 		
-//		toyList.add(sn,tname,tbrand,tprice,count,age,minP,maxP,designer);
 	    int option = Integer.parseInt(Integer.toString(sn).substring(0, 1));
 	    System.out.println(option);
-//		System.out.println(option);
-//		
-//		while (state) 
-//	
-//			if(option == 0 || option==1 || option==2 || option==3 || option==4 || option==5 || option==6 || option==7 || option==8 || option==9) 
-//			
-//				switch (option) { 
-//				case 0: 
-//				case 1:
-//					Figure toyF = new Figure (Integer.parseInt(toyData[0]), toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]),toyData[6]);
-//					toyList.add(toyF);
-//					state=false;
-//					break;
-//					
-//				case 2:
-//				case 3:
-//					Animal toyA = new Animal(Integer.parseInt(toyData[0]), toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]),toyData[6], toyData[7]);
-//					toyList.add(toyA);
-//					state=false;
-//					break;
-//				case 4:
-//				case 5:
-//				case 6:
-//					Puzzle toyP= new Puzzle (Integer.parseInt(toyData[0]), toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]), toyData[6]);
-//					toyList.add(toyP);
-//					state= false;
-//					break;
-//				case 7:
-//				case 8:
-//				case 9:
-//					BoardGame toyBG= new BoardGame (Integer.parseInt(toyData[0]), toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]), Integer.parseInt(toyData[6]), toyData[7]);
-//					toyList.add(toyBG);
-//					state= false;
-//					break;
-//				
-//				}
+	    //the program should validate the serial number before using it (see toy attributes)
+	    boolean state=true;
+	    
+		while (state) 
+	
+			if(option == 0 || option==1 || option==2 || option==3 || option==4 || option==5 || option==6 || option==7 || option==8 || option==9) 
+			
+				switch (option) { 
+				case 0: 
+				case 1:
+					Figure toyF = new Figure (Integer.parseInt(toyData[0]), toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]),toyData[6]);
+					toyList.add(toyF);
+					state=false;
+					break;
+					
+				case 2:
+				case 3:
+					Animal toyA = new Animal(Integer.parseInt(toyData[0]), toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]),toyData[6], toyData[7]);
+					toyList.add(toyA);
+					state=false;
+					break;
+				case 4:
+				case 5:
+				case 6:
+					Puzzle toyP= new Puzzle (Integer.parseInt(toyData[0]), toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]), toyData[6]);
+					toyList.add(toyP);
+					state= false;
+					break;
+				case 7:
+				case 8:
+				case 9:
+					BoardGame toyBG= new BoardGame (Integer.parseInt(toyData[0]), toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]), Integer.parseInt(toyData[6]), toyData[7]);
+					toyList.add(toyBG);
+					state= false;
+					break;
+				
+				}
 //		Toy carToy = new Toy("Car", "ABC123", "Toyota", "12345", "Red");
 //        toys.addToy(//SOMETHINNG);
 	}

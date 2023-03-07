@@ -40,7 +40,7 @@ public class SearchBuyToy {
 
 					break;
 				case 3:
-					String tp=appMenu.findTT();  //FIND TOY TYPE
+					String tt=appMenu.findTT();  //FIND TOY TYPE
 //					searchTT(); //display all toys with that type 
 //					display();
 					break;
