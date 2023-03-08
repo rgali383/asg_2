@@ -4,7 +4,7 @@ public class Animal extends Toy {
 	private String material;
 	private String size; //Char?
 	
-	public Animal(int serialNum, String name, String brand, double price, int available, int age, String material, String size) {
+	public Animal(String serialNum, String name, String brand, double price, int available, int age, String material, String size) {
 		super(serialNum, name, brand, price, available, age);
 		
 	}
@@ -24,7 +24,9 @@ public class Animal extends Toy {
 	public void setSize(String size) {
 		this.size = size;
 	}
+	
+	@Override
 	public String toString() {
-		return "material: " + material+"size: "+ size;
+		return "Serial Num: " + serialNum + "-Item Name: " + name + "-Brand: " + brand  + "-Price: " + price + "-Available Count: " + available + "-Age Rate: " + age + "material: " + material+"size: "+ size;
 	}
 }

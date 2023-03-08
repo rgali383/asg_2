@@ -31,20 +31,20 @@ public class AppMenus {
 		System.out.println("(3) Type");
 		System.out.println("(4) Back to Main Menu");
 		System.out.print("\nEnter Option: ");
-	      option = input.nextInt();
+	      option = Integer.parseInt(input.nextLine());
 		
 		return option;
 	}
 
-	public int findSN() {
-		int option;
+	public String promptSN() {
+		String option;
 		System.out.print("Enter Serial Number: ");
-			option= input.nextInt();
+			option= input.nextLine();
 			
 		return option;
 	}
 
-	public String findTN() {
+	public String promptTN() {
 		String option;
 		System.out.print("Enter Toy Name: ");
 			option= input.nextLine();
@@ -52,7 +52,7 @@ public class AppMenus {
 		return option;
 	}
 
-	public String findTT() {
+	public String promptTT() {
 		String option;
 		System.out.print("Enter Toy Type: ");
 			option= input.nextLine();
@@ -60,7 +60,7 @@ public class AppMenus {
 		return option;
 	}
 
-	public String promptTB() {
+	public String promptBrand() {
 		String option;
 		System.out.print("Enter Toy Brand: ");
 			option= input.nextLine();
@@ -68,7 +68,7 @@ public class AppMenus {
 		return option;
 	}
 
-	public int promptTP() {
+	public int promptPrice() {
 		int option;
 		System.out.print("Enter Toy Price: ");
 			option= input.nextInt();
@@ -76,17 +76,46 @@ public class AppMenus {
 		return option;
 	}
 
-	public int promptTC() {
+	public int promptStock() {
 		int option;
 		System.out.print("Enter Available Count: ");
 			option= input.nextInt();
 			
 		return option;
 	}
-	public int promptTA() {
+	public int promptAge() {
 		int option;
 		System.out.print("Enter Appropriate Age: ");
 			option= input.nextInt();
+			
+		return option;
+	}
+	public String promptClass() {
+		String option;
+		System.out.println("What is the Figure Classification: Action (A), Doll(D) or Historic(H) ");
+		option= input.nextLine();
+
+		return option;
+	}
+	public String promptMaterial() {
+		String option;
+		System.out.print("Description of the material this toy is made of: ");
+			option= input.nextLine();
+			
+		return option;
+	}
+
+	public String promptSize() {
+		String option;
+		System.out.print("Size: Small(S), Medium(M) or Large(L) ");
+			option= input.nextLine();
+			
+		return option;
+	}
+	public String promptType() {
+		String option;
+		System.out.print("Enter puzzle-type: Mechanical(M), Cryptic(C), Logic(L), Trivia(T) or Riddle(R) ");
+			option= input.nextLine();
 			
 		return option;
 	}
@@ -104,20 +133,27 @@ public class AppMenus {
 			
 		return option;
 	}
-	public String promptD() {
+
+	public String promptDesigner() {
 		String option;
-		System.out.print("Enter Designer Name (use ',' to seperate the names if there is more than one name): ");
+		System.out.print("Designer(s), all seperated by a comma only: ");
 			option= input.nextLine();
 			
 		return option;
 	}
 
-//	public void searchResult() {
-//		String formatedInfo;
-//		//Category:--Serial Number:--Name: --Brand:-- Price:-- Available Count:-- 
-//		return formatedInfo;
-//	}
-	
+	public String removeResults(String formatedResults) {
+		String option;
+		System.out.println("This item found:");
+		System.out.println("");
+		System.out.println("           "+formatedResults);
+		System.out.println("Do you want to remove it (Y/N)? ");
+			option= input.nextLine();
+			
+		System.out.println("");
+		System.out.println("Item Removed!");
+		return option;
+	}
 	
 }
 

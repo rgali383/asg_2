@@ -1,82 +1,91 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import model.Animal;
 import model.BoardGame;
 import model.Figure;
 import model.Puzzle;
-import model.Toy;
 import view.AppMenus;
 
 public class AddToy {
 
 	AppMenus appMenu;
-	ArrayList<Toy> toyList;
-	
+	ToyList toyList;
+
 	public void launchAdd() throws IOException {
 		appMenu = new AppMenus();
 		Search();
 		
 	}
 
-	private void Search() {
-//		ToyManager toys= new ToyManager();
-			String tname= appMenu.findTN();
-		String tbrand= appMenu.promptTB();
-		int tprice= appMenu.promptTP();
-		int count= appMenu.promptTC();
-		int age= appMenu.promptTA();
-		int minP=appMenu.promptMinP();
-		int maxP=appMenu.promptMaxP();
-		String designer= appMenu.promptD();
-		System.out.println("New Toy Added!");
-		//ENTER SENDS BACK TO MAIN MENU
+	private void Search() throws IOException {		
+		ToyList toyList= new ToyList();
+		String sn= appMenu.promptSN();
+//	    boolean state=uniqueSN(sn);
+		boolean state = true;
+		  
+		String tname= appMenu.promptTN();
 		
-		int sn= appMenu.findSN();
+		String tbrand= appMenu.promptBrand();
+		double tprice= appMenu.promptPrice();
+		int count= appMenu.promptStock();
+		int age= appMenu.promptAge();
 		
-	    int option = Integer.parseInt(Integer.toString(sn).substring(0, 1));
-	    System.out.println(option);
-	    //the program should validate the serial number before using it (see toy attributes)
-	    boolean state=true;
-	    
+	    int option = Character.getNumericValue(sn.charAt(0));    
 		while (state) 
-	
 			if(option == 0 || option==1 || option==2 || option==3 || option==4 || option==5 || option==6 || option==7 || option==8 || option==9) 
 			
 				switch (option) { 
 				case 0: 
 				case 1:
-					Figure toyF = new Figure (Integer.parseInt(toyData[0]), toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]),toyData[6]);
+					String classification= appMenu.promptClass();
+					Figure toyF = new Figure (sn, tname, tbrand, tprice, count, age, classification);
 					toyList.add(toyF);
 					state=false;
 					break;
 					
 				case 2:
 				case 3:
-					Animal toyA = new Animal(Integer.parseInt(toyData[0]), toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]),toyData[6], toyData[7]);
+					String material= appMenu.promptMaterial();
+					String size= appMenu.promptSize();
+					Animal toyA = new Animal(sn, tname, tbrand, tprice, count, age, material, size);
 					toyList.add(toyA);
 					state=false;
 					break;
 				case 4:
 				case 5:
 				case 6:
-					Puzzle toyP= new Puzzle (Integer.parseInt(toyData[0]), toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]), toyData[6]);
+					String type = appMenu.promptType();
+					Puzzle toyP= new Puzzle (sn, tname, tbrand, tprice, count, age, type);
 					toyList.add(toyP);
 					state= false;
 					break;
 				case 7:
 				case 8:
 				case 9:
-					BoardGame toyBG= new BoardGame (Integer.parseInt(toyData[0]), toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]), Integer.parseInt(toyData[6]), toyData[7]);
+					int minP= appMenu.promptMinP();
+					int maxP=appMenu.promptMaxP();
+					int range= minP + maxP; //D "-" INBETWEEN BUT IT WILL CONVERT TO A STRING 
+					String designers= appMenu.promptDesigner();
+					BoardGame toyBG= new BoardGame (sn, tname, tbrand, tprice, count, age, range, designers);
 					toyList.add(toyBG);
 					state= false;
 					break;
-				
+					
 				}
-//		Toy carToy = new Toy("Car", "ABC123", "Toyota", "12345", "Red");
-//        toys.addToy(//SOMETHINNG);
+		System.out.println("New Toy Added!");
+		
+
+	}
+
+	private boolean uniqueSN(String sn) {
+		ToyList toyList= new ToyList();
+		boolean state=(toyList.getSerialNumber(sn));
+		
+		if (state==false) {
+		    System.out.println("SN ALREADY EXISTS");
+		}
+			return state;
 	}
 
 }

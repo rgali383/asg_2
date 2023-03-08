@@ -3,7 +3,7 @@ package model;
 public class Figure extends Toy {
 	private String classification; //char?
 	
-	public Figure(int serialNum, String name, String brand, double price, int available, int age, String classification) {
+	public Figure(String serialNum, String name, String brand, double price, int available, int age, String classification) {
 		super(serialNum, name, brand, price, available, age);
 		
 	}
@@ -16,8 +16,9 @@ public class Figure extends Toy {
 		this.classification = classification;
 	}
 	
+	@Override
 	public String toString() {
-		return "class: " + classification;
+		return "Serial Num: " + serialNum + "-Item Name: " + name + "-Brand: " + brand  + "-Price: " + price + "-Available Count: " + available + "-Age Rate: " + age + "class: " + classification;
 	}
 
 }

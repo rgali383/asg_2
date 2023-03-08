@@ -5,15 +5,15 @@ package model;
  */
 public abstract class Toy { 
 	//ABSTRACT 
-		private int serialNum;
-		private String name;
-		private String brand;
-		private double price;
-		private int available;
-		private int age;
+		protected String serialNum;
+		protected String name;
+		protected String brand;
+		protected double price;
+		protected int available;
+		protected int age;
 		
 		
-		public Toy(int serialNum, String name, String brand, double price, int available, int age) {
+		public Toy(String serialNum, String name, String brand, double price, int available, int age) {
 		this.serialNum=serialNum;
 		this.name=name;
 		this.brand=brand;
@@ -22,11 +22,11 @@ public abstract class Toy {
 		this.age=age;
 		}
 		
-		public int getSerialNum() {
+		public String getSerialNum() {
 			return serialNum;
 		}
 
-		public void setSerialNum(int serialNum) {
+		public void setSerialNum(String serialNum) {
 			this.serialNum = serialNum;
 		}
 
@@ -74,9 +74,7 @@ public abstract class Toy {
 			return serialNum+';'+ name + ';' + brand + ';' + price + ';' + available + ';'+ age + ';';
 		}
 		
-		public String toString() {
-			return "Serial Num: " + serialNum + "-Item Name: " + name + "-Brand: " + brand  + "-Price: " + price + "-Available Count: " + available + "-Age Rate: " + age;     
-		}
+		public  abstract String toString(String serialNum, String name, String brand, double price, int available, int age);
 		
 	}
 

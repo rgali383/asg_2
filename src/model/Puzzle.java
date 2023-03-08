@@ -3,7 +3,7 @@ package model;
 public class Puzzle extends Toy {
 	private String type;
 		
-	public Puzzle(int serialNum, String name, String brand, double price, int available, int age, String type) {
+	public Puzzle(String serialNum, String name, String brand, double price, int available, int age, String type) {
 		super(serialNum, name, brand, price, available, age);
 	}
 
@@ -15,7 +15,8 @@ public class Puzzle extends Toy {
 		this.type = type;
 	}
 	
+	@Override
 	public String toString() {
-		return "puzzle- type: "+ type;
+		return "Serial Num: " + serialNum + "-Item Name: " + name + "-Brand: " + brand  + "-Price: " + price + "-Available Count: " + available + "-Age Rate: " + age + "puzzle- type: "+ type;
 	}
 }
