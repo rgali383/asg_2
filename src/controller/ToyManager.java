@@ -16,12 +16,12 @@ public class ToyManager {
 	ToyList toyList=new ToyList();
 	
 	public ToyManager() throws IOException {
+		loadToyData();
 		appMenu= new AppMenus();
 		
-		searchBuy= new SearchBuyToy();
+		searchBuy= new SearchBuyToy(toyList);
 		addToy= new AddToy(); 
 		removeToy= new RemoveToy();
-		loadToyData();
 		launchApp();
 		}
 

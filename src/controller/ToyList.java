@@ -24,7 +24,6 @@ public class ToyList {
 	String currLine;
 	String[] toyData;
 	int option;
-	boolean state= true;
 	
 	if(toyInfo.exists()) {
 		Scanner fileReader = new Scanner(toyInfo);  //USE FINALLY IN EXCEPTIONS TO CLOSE IT 
@@ -35,7 +34,6 @@ public class ToyList {
 			
 			char toyLine = toyData[0].charAt(0);
 			option = Character.getNumericValue(toyLine);			
-			while (state) 
 		
 				if(option == 0 || option==1 || option==2 || option==3 || option==4 || option==5 || option==6 || option==7 || option==8 || option==9) 
 				
@@ -44,31 +42,32 @@ public class ToyList {
 					case 1:
 						Figure toyF = new Figure (toyData[0], toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]),toyData[6]);
 						toyList.add(toyF);
-//						toyF.toString();
-						state=false;
 						break;
 						
 					case 2:
 					case 3:
 						Animal toyA = new Animal(toyData[0], toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]),toyData[6], toyData[7]);
 						toyList.add(toyA);
-						state=false;
 						break;
 					case 4:
 					case 5:
 					case 6:
 						Puzzle toyP= new Puzzle (toyData[0], toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]), toyData[6]);
 						toyList.add(toyP);
-						state= false;
 						break;
 					case 7:
 					case 8:
 					case 9:
-						BoardGame toyBG= new BoardGame (toyData[0], toyData[1], toyData[2], Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]), Integer.parseInt(toyData[5]), Integer.parseInt(toyData[6]), toyData[7]);
+						String[] range = toyData[6].split("-");
+						int min = Integer.parseInt(range[0]);
+						int max = Integer.parseInt(range[1]);
+						
+//						String[] designer= toyData[7].split(",");
+						
+						BoardGame toyBG= new BoardGame (toyData[0], toyData[1], toyData[2],Double.parseDouble(toyData[3]), Integer.parseInt(toyData[4]),Integer.parseInt(toyData[5]),min, max,toyData[7]);
 						toyList.add(toyBG);
-						state= false;
 						break;
-					
+						
 					}
 			}
 			}
@@ -92,8 +91,7 @@ public class ToyList {
 	public boolean getSerialNumber(String promptSN){ //USED TO VERIFY UNIQUE SN AND REMOVE MENU OPTION
 		boolean found=true;
 		
-		for (Toy p: toyList) { //THIS TOY LIST NULL?
-			//iterate through toyList until promptSN is found 
+		for (Toy p: toyList) {
 			if(!(p.getSerialNum()==promptSN)) {
 				found= false;
 				break;

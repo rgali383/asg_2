@@ -74,7 +74,7 @@ public abstract class Toy {
 			return serialNum+';'+ name + ';' + brand + ';' + price + ';' + available + ';'+ age + ';';
 		}
 		
-		public  abstract String toString(String serialNum, String name, String brand, double price, int available, int age);
+		public abstract String toString();
 		
 	}
 

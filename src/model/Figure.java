@@ -18,7 +18,7 @@ public class Figure extends Toy {
 	
 	@Override
 	public String toString() {
-		return "Serial Num: " + serialNum + "-Item Name: " + name + "-Brand: " + brand  + "-Price: " + price + "-Available Count: " + available + "-Age Rate: " + age + "class: " + classification;
+		return "Category: Figure, " + "Serial Number: "+ serialNum+ ", Name: " + name + ", Brand: " + brand  + ", Price: " + price + ", Available Count: " + available + ", Age Appropriate: " + age + ", Classification: " + classification;
 	}
 
 }

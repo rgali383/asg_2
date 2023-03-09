@@ -17,6 +17,6 @@ public class Puzzle extends Toy {
 	
 	@Override
 	public String toString() {
-		return "Serial Num: " + serialNum + "-Item Name: " + name + "-Brand: " + brand  + "-Price: " + price + "-Available Count: " + available + "-Age Rate: " + age + "puzzle- type: "+ type;
+		return "Category: Puzzle, " + "Serial Number: "+ serialNum+ ", Name: " + name + ", Brand: " + brand  + ", Price: " + price + ", Available Count: " + available + ", Age Appropriate: " + age+ ", Puzzle- type: "+ type;
 	}
 }

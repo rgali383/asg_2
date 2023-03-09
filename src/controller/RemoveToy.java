@@ -23,6 +23,9 @@ public class RemoveToy {
 			System.out.println("ITEM NOT FOUND");
 		}
 		else {
+			Toy toy= sn;
+			sn.toString();
+			toyList.getList();
 			String formatedResults= toyList.getString(sn);
 			String confirmation = appMenu.removeResults(formatedResults);
 				if (confirmation=="y") {

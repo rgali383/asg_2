@@ -27,6 +27,6 @@ public class Animal extends Toy {
 	
 	@Override
 	public String toString() {
-		return "Serial Num: " + serialNum + "-Item Name: " + name + "-Brand: " + brand  + "-Price: " + price + "-Available Count: " + available + "-Age Rate: " + age + "material: " + material+"size: "+ size;
+		return "Category: Animal, " + "Serial Number: "+ serialNum+ ", Name: " + name + ", Brand: " + brand  + ", Price: " + price + ", Available Count: " + available + ", Age Appropriate: " + age+ ", Material: " + material+ ", Size: "+ size;
 	}
 }

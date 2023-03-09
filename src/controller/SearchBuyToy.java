@@ -3,23 +3,26 @@ package controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import model.Animal;
+import model.BoardGame;
+import model.Figure;
+import model.Puzzle;
 import model.Toy;
 import view.AppMenus;
 
 public class SearchBuyToy {
 	ArrayList<Toy> matches = new ArrayList<Toy>();
 	AppMenus appMenu;
-	ToyList toyList = new ToyList();
-
-	public void launchSearch() {
-		appMenu = new AppMenus();
-		Search();
-		purchaseToy();
+	ToyList toyList;
+	
+	public SearchBuyToy(ToyList toyList){
+		this.toyList=toyList;
 	}
 
-	private void purchaseToy() {
-		// TODO Auto-generated method stub
-
+	public void launchSearch() {
+//		matches.clear(); Maybe?
+		appMenu = new AppMenus();
+		Search();
 	}
 
 	private void Search() {
@@ -33,105 +36,90 @@ public class SearchBuyToy {
 
 				switch (option) {
 				case 1: 
-					String sn= appMenu.promptSN();     //FIND SN
-					searchSN(sn);
-
+					String sn= appMenu.promptSN();     
+					//FIND SN
+					searchBySN(sn);
+//					System.out.println(matches);
+					display();
 					break;		
 
 				case 2:
-					String tn= appMenu.promptTN();  //FIND TOY NAME
-					searchByTN(tn);
-
+					String name= appMenu.promptTN();  
+					//FIND TOY NAME
+					searchByName(name);
+					display();
+					
 					break;
 				case 3:
-					String tt= appMenu.promptTT();  //FIND TOY TYPE
-					//					searchTT(tt); 
-
+					String type= appMenu.promptTT(); 
+					//FIND TOY TYPE
+					searchByType(type); 
+					display();
 					break;
 
 				case 4:
 					//BACK TO MAIN MENU
 					state= false;
 					break;
+					
 				}
 			else 
-				//throw ane exeption 
 				System.out.println("Invalid Input Try Again");
 		}
+
+	}
+
+	
+	private void display() {
 		System.out.println(matches);
-
 	}
 
-	private void searchSN(String sn) {
-		Toy toy=searchBySN(sn);
-		boolean option = true;
-
-		while (option) {
-			matches.add(toy);
-
-		}
-
-	}
-	private Toy searchBySN(String sn) { //serialNum
+	private void searchBySN(String sn) { //serialNum
 		/**This option prompts the user for a name, and displays the toys if 
 		 * they exist in the database. 
 		 */
-		Toy toy = null;
 		for (Toy p: toyList.getList()) {
 			if(p.getSerialNum().equals(sn)) {
-				toy= p;
-
-				break;
-			}
-		}
-		return toy;
-	}
-
-	//	private void searchTN(String tn) {
-	//		System.out.println("searchTN ");
-	//		Toy toy=searchByTN(tn);
-	////		boolean option=true;
-	//		
-	//		matches.add(toy);
-	//		
-	//		System.out.println(matches);
-	//		
-	//	}
-	private void searchByTN(String tn) {//toyName 
-
-		for (Toy p: toyList.getList()) {
-			if(p.getName().contains(tn)) {
+				//no arrayListmatches is used since its only one 
+//				System.out.println(p);
 				matches.add(p);
 			}
 		}
-		System.out.println(matches);
 	}
-	//	private void searchTT(String tt) { //toyType
-	//		//if ((the item in first line) instance of (Animal, Figure, Puzzle and Board Game))
-	//		//		display();
-	//		ArrayList<Toy> matches = new ArrayList<Toy>();
-	//		
-	//		Toy type;
-	//
-	//		for (Toy p: toyList.getList()) {
-	//			if(p instanceof Animal) {
-	//				type = p;
-	//			}
-	//			else if(p instanceof Puzzle) {
-	//				type=p;
-	//			}
-	//			else if (p instanceof BoardGame) {
-	//				type= p;
-	//			}
-	//			else if(p instanceof Figure) {
-	//				type= p;
-	//			}
-	//		System.out.println(type.toString());
-	//	}
+	
+	
+	private void searchByName(String tn) {//toyName 
+
+		for (Toy p: toyList.getList()) {
+
+			if(p.getName().contains(tn)) {
+				System.out.println(p);
+				matches.add(p);
+			}
+		}
+	}
+	private void searchByType(String type) { //toyType
+				
+		for (Toy p: toyList.getList()) {
+				if(p instanceof Animal) {
+//					System.out.println(p);
+					matches.add(p);
+				}
+				else if(p instanceof Puzzle) {
+//					System.out.println(p);
+					matches.add(p);
+				}
+				else if (p instanceof BoardGame) {
+//					System.out.println(p);
+					matches.add(p);
+				}
+				else if(p instanceof Figure) {
+//					System.out.println(p);
+					matches.add(p);
+				}
+			
+		}
+	}
 }
-//
-//	private void display() {
-//		appMenu.searchResult();
-//	}
 
 

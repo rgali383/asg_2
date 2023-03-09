@@ -21,8 +21,8 @@ public class AddToy {
 	private void Search() throws IOException {		
 		ToyList toyList= new ToyList();
 		String sn= appMenu.promptSN();
-//	    boolean state=uniqueSN(sn);
-		boolean state = true;
+	    boolean state=uniqueSN(sn);
+//		boolean state = true;
 		  
 		String tname= appMenu.promptTN();
 		
@@ -32,7 +32,8 @@ public class AddToy {
 		int age= appMenu.promptAge();
 		
 	    int option = Character.getNumericValue(sn.charAt(0));    
-		while (state) 
+		while (state)  //ONLY WANT TO ADD A TOY ONCE  unlike loadData which should iterate through each line 
+			
 			if(option == 0 || option==1 || option==2 || option==3 || option==4 || option==5 || option==6 || option==7 || option==8 || option==9) 
 			
 				switch (option) { 
@@ -65,9 +66,8 @@ public class AddToy {
 				case 9:
 					int minP= appMenu.promptMinP();
 					int maxP=appMenu.promptMaxP();
-					int range= minP + maxP; //D "-" INBETWEEN BUT IT WILL CONVERT TO A STRING 
 					String designers= appMenu.promptDesigner();
-					BoardGame toyBG= new BoardGame (sn, tname, tbrand, tprice, count, age, range, designers);
+					BoardGame toyBG= new BoardGame (sn, tname, tbrand, tprice, count, age, minP, maxP, designers);
 					toyList.add(toyBG);
 					state= false;
 					break;
