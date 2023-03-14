@@ -1,12 +1,20 @@
+
 package exceptions;
+/**
 
-public class NegativePriceException {
+The NegativePriceException class represents a custom exception for negative price input.
+It extends the Exception class to create a custom exception.
+It includes a constructor that takes a message parameter to describe the exception.
+*/
+public class NegativePriceException extends NumberFormatException{
 
-    public NegativePriceException(int price) {
-        System.out.println("Price cannot be negative: " + price);
-    }
+	private static final long serialVersionUID = 1L;
+
+	public NegativePriceException() {
+		super();
+	}
+	public NegativePriceException(String message) {
+        super(message);
+	}
+
 }
-
-//if (price < 0) {
-//    throw new NegativePriceException(price);
-//}
